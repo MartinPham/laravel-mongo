@@ -346,9 +346,13 @@ abstract class Model extends BaseModel  implements \Serializable {
     {
         $attributes = parent::attributesToArray();
 
-        // dd($attributes);
+        $attributes = $this->convertAttributes($attributes);
 
-        // Because the original Eloquent never returns objects, we convert
+        return $attributes;
+    }
+
+    public function convertAttributes($attributes)
+    {// Because the original Eloquent never returns objects, we convert
         // MongoDB related objects to a string ressentation. This kind
         // of mimics the SQL behaviour so that dates are formatted
         // nicely when your models are converted to JSON.
@@ -534,6 +538,14 @@ abstract class Model extends BaseModel  implements \Serializable {
         $connection = $this->getConnection();
 
         return new QueryBuilder($connection, $connection->getPostProcessor());
+    }
+
+    protected function getCasts()
+    {
+        $this->casts = parent::getCasts();
+        $this->casts['_id'] = 'string';
+
+        return $this->casts;
     }
 
     /**

@@ -1,6 +1,6 @@
 {
 	"name": "martinpham/mongodb",
-	"description": "Laravel MongoDB with PHP 7's MongoDB driver. Original package is from jenssegers/mongodb, Run `composer require \"mongodb/mongodb=^1.0.0@beta\"`",
+	"description": "Laravel MongoDB with PHP 7's MongoDB driver. Original from jenssegers/mongodb, Run `composer require \"mongodb/mongodb=^1.0.0@beta\"`",
 	"keywords": ["laravel", "eloquent", "mongodb", "mongo", "database", "model"],
 	"homepage": "https://gitlab.com/martinpham/laravel-mongodb",
 	"authors": [{
