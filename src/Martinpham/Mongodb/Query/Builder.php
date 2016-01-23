@@ -305,7 +305,8 @@ class Builder extends BaseBuilder {
 //            if ($this->hint)    $options['hint'] = $this->hint;
 
 //            var_dump($options);
-            $cursor = $this->collection->find($wheres, $columns, $options);
+            $cursor = $this->collection->find($wheres, $options);
+            //$cursor = $this->collection->find($wheres, $columns, $options);
 
 //            dd([$this->timeout, $this->orders, $this->offset, $this->limit, $this->hint]);
 
