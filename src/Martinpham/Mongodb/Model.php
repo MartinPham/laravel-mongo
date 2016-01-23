@@ -540,7 +540,7 @@ abstract class Model extends BaseModel  implements \Serializable {
         return new QueryBuilder($connection, $connection->getPostProcessor());
     }
 
-    protected function getCasts()
+    public function getCasts()
     {
         $this->casts = parent::getCasts();
         $this->casts['_id'] = 'string';
