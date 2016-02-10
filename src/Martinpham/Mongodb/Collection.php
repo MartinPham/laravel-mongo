@@ -27,6 +27,15 @@ class Collection {
         $this->connection = $connection;
         $this->collection = $collection;
     }
+    
+    
+    public function batchInsert($dataArray)
+    {
+        foreach($dataArray as $data)
+        {
+            $this->insertOne($data);
+        }
+    }
 
     /**
      * Handle dynamic method calls.
