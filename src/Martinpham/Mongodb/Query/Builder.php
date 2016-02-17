@@ -291,20 +291,21 @@ class Builder extends BaseBuilder {
             }
 
             // Add custom projections.
-            if ($this->projections)
-            {
-                $columns = array_merge($columns, $this->projections);
-            }
+//            if ($this->projections)
+//            {
+//                $columns = array_merge($columns, $this->projections);
+//            }
 
             // Execute query and get MongoCursor
             $options = [];
 //            if ($this->timeout) $options['timeout'] = $this->timeout;
+            if ($this->projections) $options['projection'] = $this->projections;
             if ($this->orders)  $options['sort'] = $this->orders;
             if ($this->offset)  $options['skip'] = $this->offset;
             if ($this->limit)   $options['limit'] = $this->limit;
 //            if ($this->hint)    $options['hint'] = $this->hint;
 
-//            var_dump($options);
+//            dd($options);
             $cursor = $this->collection->find($wheres, $options);
             //$cursor = $this->collection->find($wheres, $columns, $options);
 
