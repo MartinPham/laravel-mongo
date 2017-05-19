@@ -965,7 +965,7 @@ class Builder extends BaseBuilder {
             if ( ! starts_with($value, '%')) $regex = '^' . $regex;
             if ( ! ends_with($value, '%'))   $regex = $regex . '$';
 
-            $value = new MongoRegex("/$regex/i");
+            $value = new \MongoDB\BSON\Regex( $regex, "i");
         }
 
         // Manipulate regexp operations.
